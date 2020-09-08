@@ -18,12 +18,20 @@ public class PlayerAnimate : MonoBehaviour
     private Animator Anim;
     private Vector3 m_scale;
 
+    private bool m_FacingRight;
+    private void Flip()
+    {
+        m_FacingRight = !m_FacingRight;
+        transform.Rotate(0f, 180f, 0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         m_rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         Anim = gameObject.GetComponent<Animator>();
         m_scale = transform.localScale;
+        m_FacingRight = true;
     }
 
     // Update is called once per frame
@@ -37,12 +45,20 @@ public class PlayerAnimate : MonoBehaviour
         if(Input.GetAxisRaw("Horizontal")>0)
         {
             m_rigidbody2D.velocity = new Vector2(MoveSpeed, m_rigidbody2D.velocity.y);
-            transform.localScale = m_scale;
+            //transform.localScale = m_scale;
+            if (!m_FacingRight)
+            {
+                Flip();
+            }
         }
         else if(Input.GetAxisRaw("Horizontal")<0)
         {
             m_rigidbody2D.velocity = new Vector2(-MoveSpeed, m_rigidbody2D.velocity.y);
-            transform.localScale = new Vector3(-m_scale.x, m_scale.y, m_scale.z);
+            //transform.localScale = new Vector3(-m_scale.x, m_scale.y, m_scale.z);
+            if (m_FacingRight)
+            {
+                Flip();
+            }
         }
         else
         {
@@ -58,7 +74,7 @@ public class PlayerAnimate : MonoBehaviour
             Jumped = true;
         }
 
-        Anim.SetFloat("Speed", m_rigidbody2D.velocity.x);
+        Anim.SetFloat("Speed", (m_rigidbody2D.velocity.x > 0) ? (m_rigidbody2D.velocity.x) : (-m_rigidbody2D.velocity.x));
         Anim.SetBool("Grounded", isGround);
     }
 }
