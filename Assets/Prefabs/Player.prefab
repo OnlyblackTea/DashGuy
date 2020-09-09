@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1203463213}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: firePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203463212}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.21, y: 0.136, z: -29.535515}
+  m_LocalPosition: {x: 0.21, y: 0.136, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9179802267042143026}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9179802266808406165}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: checkpointGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9179802266808406164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02634859, y: -0.357, z: -16.32217}
+  m_LocalPosition: {x: 0.02634859, y: -0.357, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9179802267042143026}
@@ -73,12 +73,12 @@ GameObject:
   - component: {fileID: 9179802267042143025}
   - component: {fileID: 9179802267042143030}
   - component: {fileID: 9179802267042143020}
-  - component: {fileID: 9179802267042143027}
   - component: {fileID: 9179802267042143024}
   - component: {fileID: 895100597}
-  m_Layer: 0
+  - component: {fileID: 2124167626}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 2976041059057689810, guid: c483493eb3ec0f143b5d78ad823ac661, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -228,26 +228,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9179802267042143027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9179802267042143023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3485eb6980523c94b9da5e1d2631387c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  JumpSpeed: 8
-  CheckPoint: {fileID: 9179802266808406165}
-  CheckRadius: 0.3
-  WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  isGround: 1
 --- !u!210 &9179802267042143024
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -258,7 +238,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 100
 --- !u!114 &895100597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,3 +253,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1203463213}
   bulletPrefab: {fileID: 5102716120189702727, guid: 1711280cb451ea649af78b7b73030ad5, type: 3}
+--- !u!114 &2124167626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9179802267042143023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3485eb6980523c94b9da5e1d2631387c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 5
+  JumpSpeed: 5
+  CheckPoint: {fileID: 9179802266808406165}
+  CheckRadius: 0.3
+  WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 256
+  isGround: 1
