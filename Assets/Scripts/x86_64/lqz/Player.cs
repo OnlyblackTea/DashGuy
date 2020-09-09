@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     private Vector3 RespawnPosition;//记录复活点的位置信息
 
-    private float timer = 30.0f;
+    private float timer = 10.0f;
 
     private bool m_FacingRight;
 
@@ -47,14 +47,14 @@ public class Player : MonoBehaviour
         if (isGround)
         {
             Jumped = false;//初始化二段跳
-            timer = 30.0f;
+            timer = 10.0f;
         }
         else
         {
             timer -= Time.deltaTime;
             if (timer < 0)
             {
-
+                gameFail();
             }
         }
 
@@ -98,5 +98,10 @@ public class Player : MonoBehaviour
 
         Anim.SetFloat("Speed", (m_rigidbody2D.velocity.x > 0) ? (m_rigidbody2D.velocity.x) : (-m_rigidbody2D.velocity.x));//设置动画器中速度
         Anim.SetBool("Grounded", isGround);//设置动画器中着地变量
+    }
+
+    private void gameFail()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);//返回选择界面
     }
 }
